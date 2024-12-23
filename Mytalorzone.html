@@ -1,568 +1,610 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mytalorzone By Sahiba</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> 
-  <style>
-    /* General Styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      animation: fadeInBody 1s ease-out;
-    }
-
-    /* Header Styles */
-    header {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      background-color: #222;
-      color: white;
-      align-items: center;
-      position: relative;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    header .logo img {
-      height: 40px;
-      animation: logoSlideIn 1s ease-out;
-    }
-
-    header nav ul {
-      display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      animation: navSlideIn 1.5s ease-out;
-    }
-
-    header nav ul li {
-      margin: 0 15px;
-    }
-
-    header nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    header .cart-search {
-      display: flex;
-      align-items: center;
-      animation: fadeInUp 1.5s ease-out;
-    }
-
-    header .cart-search input {
-      padding: 5px;
-      margin-right: 10px;
-      border: none;
-      border-radius: 3px;
-    }
-
-    header .cart-icon img {
-      height: 30px;
-    }
-
-    /* Hero Section */
-    .hero {
-      background-image: url('https://sizebay.com/wp-content/uploads/2024/01/capa-blog.png');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      width: 100%;
-      position: relative;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    .hero-content {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      color: white;
-      max-width: 80%;
-      animation: slideUp 2s ease-in-out;
-    }
-
-    .hero h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
-
-    .hero button {
-      padding: 10px 20px;
-      background-color: gold;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-
-    .hero button:hover {
-      transform: scale(1.1);
-    }
-
-    /* Featured Collections */
-    #collections {
-      padding: 40px;
-      text-align: center;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    .collection-grid {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .collection-item {
-      width: 30%;
-      margin: 15px 0;
-      opacity: 0;
-      animation: fadeInUp 1s ease-in-out forwards;
-      animation-delay: 0.5s;
-    }
-
-    .collection-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .collection-item button {
-      padding: 10px 20px;
-      background-color: gold;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .collection-item button:hover {
-      transform: scale(1.1);
-    }
-
-    /* Best Sellers */
-    #best-sellers {
-      background-color: #fff;
-      padding: 40px 0;
-      text-align: center;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    .best-sellers-grid {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
-
-    .product {
-      opacity: 0;
-      animation: fadeInUp 1s ease-in-out forwards;
-      animation-delay: 0.8s;
-    }
-
-    .product img {
-      width: 100%;
-      height: 40vh;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .product button {
-      padding: 10px 20px;
-      background-color: gold;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .product button:hover {
-      transform: scale(1.1);
-    }
-
-    /* Footer */
-    footer {
-      background-color: #222;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      animation: fadeInUp 2s ease-out;
-    }
-
-    footer .footer-links ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    footer .footer-links ul li {
-      display: inline;
-      margin: 0 15px;
-    }
-
-    footer .footer-links ul li a {
-      color: white;
-      text-decoration: none;
-    }
-
-    footer .social-media a {
-      margin: 0 10px;
-      
-    }
-
-    footer .newsletter input {
-      padding: 10px;
-      margin-right: 10px;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInBody {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideUp {
-      0% {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes logoSlideIn {
-      0% {
-        transform: translateX(-50px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes navSlideIn {
-      0% {
-        transform: translateX(50px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5em;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mytalorzone By Sahiba</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        animation: fadeInBody 1s ease-out;
       }
 
-      .hero p {
-        font-size: 1em;
-      }
-
-      .collection-item {
-        width: 45%;
-      }
-
-      .best-sellers-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .product {
-        width: 80%;
-        margin: 10px 0;
-      }
-    }
-
-    @media (max-width: 480px) {
+      /* Header Styles */
       header {
-        flex-direction: column;
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #222;
+        color: white;
+        align-items: center;
+        position: relative;
+        animation: fadeIn 2s ease-in-out;
       }
 
-      .logo img {
-        height: 30px;
+      header .logo img {
+        height: 40px;
+        animation: logoSlideIn 1s ease-out;
       }
 
       header nav ul {
-        flex-direction: column;
-        margin-top: 10px;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        animation: navSlideIn 1.5s ease-out;
+      }
+
+      header nav ul li {
+        margin: 0 15px;
+      }
+
+      header nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
       }
 
       header .cart-search {
-        flex-direction: column;
-        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        animation: fadeInUp 1.5s ease-out;
       }
 
-      .collection-item {
-        width: 90%;
+      header .cart-search input {
+        padding: 5px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 3px;
+      }
+
+      header .cart-icon img {
+        height: 30px;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-image: url("https://sizebay.com/wp-content/uploads/2024/01/capa-blog.png");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        animation: fadeInUp 2s ease-out;
+      }
+
+      .hero-content {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        max-width: 80%;
+        animation: slideUp 2s ease-in-out;
       }
 
       .hero h1 {
-        font-size: 2em;
+        font-size: 3em;
+        margin: 0;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+        margin: 10px 0;
       }
 
       .hero button {
-        font-size: 1em;
+        padding: 10px 20px;
+        background-color: gold;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.3s ease;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header Section -->
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Mytalorzone By Sahiba" />
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="cart-search">
-      <input type="text" placeholder="Search..." />
-      <div class="cart-icon">
-        <img src="cart-icon.png" alt="Cart" />
-        <span>0</span> <!-- Cart Count Display -->
-      </div>
-      
-    </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Mytalorzone By Sahiba</h1>
-      <p>Discover the latest trends and curated collections.</p>
-      <button onclick="location.href='#collections'">Shop Now</button>
-    </div>
-  </section>
+      .hero button:hover {
+        transform: scale(1.1);
+      }
 
-  <!-- Featured Collections Section -->
-  <section id="collections">
-    <h2>Featured Collections</h2>
-    <div class="collection-grid">
-      <div class="collection-item">
-        <img src="https://assets.vogue.com/photos/61e9c43c8aa98afba69ec2e8/master/w_2560%2Cc_limit/00_story.jpg"  style="width: 350px; height: 240px;"/>
-        <p>Men's Wear</p>
-        <button onclick="location.href='#'">Explore</button>
-      </div>
-      <div class="collection-item">
-        <img src="https://www.westside.com/cdn/shop/articles/eid_ethnic_wear_for_women.jpg?v=1650963225" alt="Women's Wear" style="width: 350px; height: 240px;"/>
-        <p>Women's Wear</p>
-        <button onclick="location.href='#'">Explore</button>
-      </div>
-      <div class="collection-item">
-        <img src="https://bournecrisp.com.au/wp-content/uploads/2019/07/accessories-make-or-break-1100x733.jpg" alt="Accessories"  style="width: 350px; height: 240px; "/>
-        <p> Accessories</p>
-        <button onclick="location.href='#'">Explore</button>
-      </div>
-    </div>
-  </section>
+      /* Featured Collections */
+      #collections {
+        padding: 40px;
+        text-align: center;
+        animation: fadeInUp 2s ease-out;
+      }
 
-  <!-- Best Sellers Section -->
-  <section id="best-sellers">
-    <h2>Best Sellers</h2>
-    <div class="best-sellers-grid">
-      <div class="product">
-        <img src="https://mrbutton.in/cdn/shop/files/detailed41copy.jpg?v=1720097922&width=1080" alt="Product 1" />
-        <p>Stylish Shirt</p>
-        <p>$49.99</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://m.media-amazon.com/images/I/81AXenWWDYL._AC_UY1100_.jpg" alt="Product 2" />
-        <p>Classic Blazer</p>
-        <p>$99.99</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="https://clothsvilla.com/cdn/shop/files/chic-red-georgette-dress-with-elegant-prints-ready-to-wear_2_1066x.jpg?v=1728121800" alt="Product 3" />
-        <p>Chic Dress</p>
-        <p>$79.99</p>
-        <button>Add to Cart</button>
-      </div>
-    </div>
-  </section>
+      .collection-grid {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
 
-  <!-- Footer Section -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
+      .collection-item {
+        width: 30%;
+        margin: 15px 0;
+        opacity: 0;
+        animation: fadeInUp 1s ease-in-out forwards;
+        animation-delay: 0.5s;
+      }
+
+      .collection-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .collection-item button {
+        padding: 10px 20px;
+        background-color: gold;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .collection-item button:hover {
+        transform: scale(1.1);
+      }
+
+      /* Best Sellers */
+      #best-sellers {
+        background-color: #fff;
+        padding: 40px 0;
+        text-align: center;
+        animation: fadeInUp 2s ease-out;
+      }
+
+      .best-sellers-grid {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+
+      .product {
+        opacity: 0;
+        animation: fadeInUp 1s ease-in-out forwards;
+        animation-delay: 0.8s;
+      }
+
+      .product img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .product button {
+        padding: 10px 20px;
+        background-color: gold;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .product button:hover {
+        transform: scale(1.1);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #222;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        animation: fadeInUp 2s ease-out;
+      }
+
+      footer .footer-links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      footer .footer-links ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+
+      footer .footer-links ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer .social-media a {
+        margin: 0 10px;
+      }
+
+      footer .newsletter input {
+        padding: 10px;
+        margin-right: 10px;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInBody {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideUp {
+        0% {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes logoSlideIn {
+        0% {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes navSlideIn {
+        0% {
+          transform: translateX(50px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5em;
+        }
+
+        .hero p {
+          font-size: 1em;
+        }
+
+        .collection-item {
+          width: 45%;
+        }
+
+        .best-sellers-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .product {
+          width: 80%;
+          margin: 10px 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .logo img {
+          height: 30px;
+        }
+
+        header nav ul {
+          flex-direction: column;
+          margin-top: 10px;
+        }
+
+        header .cart-search {
+          flex-direction: column;
+          margin-top: 10px;
+        }
+
+        .collection-item {
+          width: 90%;
+        }
+
+        .hero h1 {
+          font-size: 2em;
+        }
+
+        .hero button {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Mytalorzone By Sahiba" />
+      </div>
+      <nav>
         <ul>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
+      </nav>
+      <div class="cart-search">
+        <input type="text" placeholder="Search...." />
+        <div class="cart-icon">
+          <img
+            src="https://w7.pngwing.com/pngs/981/639/png-transparent-white-shopping-cart-illustration-computer-icons-shopping-cart-online-shopping-shopping-cart-icon-miscellaneous-angle-orange.png"
+            alt="Cart"
+          />
+          <span>0</span>
+          <!-- Cart Count Display -->
+        </div>
       </div>
-      <div class="social-media">
-        <a href="#"><img src="facebook-icon.png" alt="Facebook"  style="width: 50px; height: 50px;"/></a>
-        <a href="#"><img src="instagram-icon.png" alt="Instagram" style="width: 50px; height: 50px;" /></a>
-        <a href="#"><img src="twitter-icon.png" alt="Twitter"style="width: 50px; height: 50px;"/></a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Mytalorzone By Sahiba</h1>
+        <p>Discover the latest trends and curated collections.</p>
+        <button onclick="location.href='#collections'">Shop Now</button>
       </div>
-      <div class="newsletter">
-        <input type="email" placeholder="Enter your email" />
-        <button>Subscribe</button>
+    </section>
+
+    <!-- Featured Collections Section -->
+    <section id="collections">
+      <h2>Featured Collections</h2>
+      <div class="collection-grid">
+        <div class="collection-item">
+          <img
+            src="https://assets.vogue.com/photos/61e9c43c8aa98afba69ec2e8/master/w_2560%2Cc_limit/00_story.jpg"
+            style="width: 350px; height: 240px"
+          />
+          <p>Men's Wear</p>
+          <button onclick="location.href='#'">Explore</button>
+        </div>
+        <div class="collection-item">
+          <img
+            src="https://www.westside.com/cdn/shop/articles/eid_ethnic_wear_for_women.jpg?v=1650963225"
+            alt="Women's Wear"
+            style="width: 350px; height: 240px"
+          />
+          <p>Women's Wear</p>
+          <button onclick="location.href='#'">Explore</button>
+        </div>
+        <div class="collection-item">
+          <img
+            src="https://bournecrisp.com.au/wp-content/uploads/2019/07/accessories-make-or-break-1100x733.jpg"
+            alt="Accessories"
+            style="width: 350px; height: 240px"
+          />
+          <p>Accessories</p>
+          <button onclick="location.href='#'">Explore</button>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- JavaScript -->
-   <script>
-  
-  // Cart Management (Simple Implementation)
-const addToCartButtons = document.querySelectorAll(".product button");
-const cartCountElement = document.querySelector(".cart-icon span"); // You might need to add a span to show the cart count.
+    <!-- Best Sellers Section -->
+    <section id="best-sellers">
+      <h2>Best Sellers</h2>
+      <div class="best-sellers-grid">
+        <div class="product">
+          <img
+            src="https://mrbutton.in/cdn/shop/files/detailed41copy.jpg?v=1720097922&width=1080"
+            alt="Product 1"
+          />
+          <p>Stylish Shirt</p>
+          <p>₹1599</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product">
+          <img
+            src="https://m.media-amazon.com/images/I/81AXenWWDYL._AC_UY1100_.jpg"
+            alt="Product 2"
+          />
+          <p>Classic Blazer</p>
+          <p>₹3999</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product">
+          <img
+            src="https://clothsvilla.com/cdn/shop/files/chic-red-georgette-dress-with-elegant-prints-ready-to-wear_2_1066x.jpg?v=1728121800"
+            alt="Product 3"
+          />
+          <p>Chic Dress</p>
+          <p>₹2599</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
 
-let cartItems = 0;
+    <!-- Footer Section -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="social-media">
+          <a href="#"
+            ><img
+              src="https://cdn.freebiesupply.com/logos/large/2x/facebook-logo-2019.png"
+              alt="Facebook"
+              style="width: 50px; height: 50px"
+          /></a>
+          <a href="#"
+            ><img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1000px-Instagram_logo_2022.svg.png"
+              alt="Instagram"
+              style="width: 50px; height: 50px"
+          /></a>
+          <a href="#"
+            ><img
+              src="https://cdn.prod.website-files.com/5d66bdc65e51a0d114d15891/64cebdd90aef8ef8c749e848_X-EverythingApp-Logo-Twitter.jpg"
+              alt="Twitter"
+              style="width: 50px; height: 50px"
+          /></a>
+        </div>
+        <div class="newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </footer>
 
-// Add item to cart
-addToCartButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const productName = event.target.closest(".product").querySelector("p").textContent;
-    alert(`${productName} has been added to your cart!`);
-    cartItems++;
-    updateCartCount();
-  });
-});
+    <!-- JavaScript -->
+    <script>
+      // Cart Management (Simple Implementation)
+      const addToCartButtons = document.querySelectorAll(".product button");
+      const cartCountElement = document.querySelector(".cart-icon span"); // You might need to add a span to show the cart count.
 
-// Update Cart Count
-function updateCartCount() {
-  cartCountElement.textContent = cartItems;  // Update cart count in the header (this assumes you have a span for the cart count)
-}
+      let cartItems = 0;
 
-// Search Functionality (Filter Products)
-const searchInput = document.querySelector(".cart-search input");
-const collectionItems = document.querySelectorAll(".collection-item");
-const bestSellerItems = document.querySelectorAll(".product");
+      // Add item to cart
+      addToCartButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const productName = event.target
+            .closest(".product")
+            .querySelector("p").textContent;
+          alert(`${productName} has been added to your cart!`);
+          cartItems++;
+          updateCartCount();
+        });
+      });
 
-// Function to filter products based on search input
-searchInput.addEventListener("input", function () {
-  const query = searchInput.value.toLowerCase();
-  
-  // Filter Collection Items
-  collectionItems.forEach((item) => {
-    const itemName = item.querySelector("p").textContent.toLowerCase();
-    if (itemName.includes(query)) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
-  });
+      // Update Cart Count
+      function updateCartCount() {
+        cartCountElement.textContent = cartItems; // Update cart count in the header (this assumes you have a span for the cart count)
+      }
 
-  // Filter Best Seller Products
-  bestSellerItems.forEach((item) => {
-    const itemName = item.querySelector("p").textContent.toLowerCase();
-    if (itemName.includes(query)) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
-  });
-});
+      // Search Functionality (Filter Products)
+      const searchInput = document.querySelector(".cart-search input");
+      const collectionItems = document.querySelectorAll(".collection-item");
+      const bestSellerItems = document.querySelectorAll(".product");
 
-// Newsletter Subscription Handling
-const subscribeButton = document.querySelector(".newsletter button");
-const subscribeInput = document.querySelector(".newsletter input");
+      // Function to filter products based on search input
+      searchInput.addEventListener("input", function () {
+        const query = searchInput.value.toLowerCase();
 
-subscribeButton.addEventListener("click", function () {
-  const email = subscribeInput.value.trim();
-  if (validateEmail(email)) {
-    alert("Thank you for subscribing to our newsletter!");
-    // In a real application, you'd integrate with an email service provider like Mailchimp here
-    subscribeInput.value = ""; // Clear input field after submission
-  } else {
-    alert("Please enter a valid email address.");
-  }
-});
+        // Filter Collection Items
+        collectionItems.forEach((item) => {
+          const itemName = item.querySelector("p").textContent.toLowerCase();
+          if (itemName.includes(query)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
 
-// Simple Email Validation Function
-function validateEmail(email) {
-  const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  return re.test(email);
-}
+        // Filter Best Seller Products
+        bestSellerItems.forEach((item) => {
+          const itemName = item.querySelector("p").textContent.toLowerCase();
+          if (itemName.includes(query)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
 
-// Smooth Scroll to the Featured Collections Section
-const shopNowButton = document.querySelector(".hero button");
-shopNowButton.addEventListener("click", function () {
-  const shopSection = document.querySelector("#collections");
-  shopSection.scrollIntoView({ behavior: "smooth" });
-});
+      // Newsletter Subscription Handling
+      const subscribeButton = document.querySelector(".newsletter button");
+      const subscribeInput = document.querySelector(".newsletter input");
 
-// Optional: Implement Product Filtering based on Categories or Tags (Advanced)
-const categoryButtons = document.querySelectorAll(".category-filter button");
+      subscribeButton.addEventListener("click", function () {
+        const email = subscribeInput.value.trim();
+        if (validateEmail(email)) {
+          alert("Thank you for subscribing to our newsletter!");
+          // In a real application, you'd integrate with an email service provider like Mailchimp here
+          subscribeInput.value = ""; // Clear input field after submission
+        } else {
+          alert("Please enter a valid email address.");
+        }
+      });
 
-categoryButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const category = event.target.dataset.category;
-    filterProductsByCategory(category);
-  });
-});
+      // Simple Email Validation Function
+      function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return re.test(email);
+      }
 
-// Function to filter products by category
-function filterProductsByCategory(category) {
-  collectionItems.forEach((item) => {
-    if (category === "all" || item.dataset.category === category) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
-  });
+      // Smooth Scroll to the Featured Collections Section
+      const shopNowButton = document.querySelector(".hero button");
+      shopNowButton.addEventListener("click", function () {
+        const shopSection = document.querySelector("#collections");
+        shopSection.scrollIntoView({ behavior: "smooth" });
+      });
 
-  bestSellerItems.forEach((item) => {
-    if (category === "all" || item.dataset.category === category) {
-      item.style.display = "block";
-    } else {
-      item.style.display = "none";
-    }
-  });
-}
-</script>
+      // Optional: Implement Product Filtering based on Categories or Tags (Advanced)
+      const categoryButtons = document.querySelectorAll(
+        ".category-filter button"
+      );
 
-</body>
+      categoryButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const category = event.target.dataset.category;
+          filterProductsByCategory(category);
+        });
+      });
+
+      // Function to filter products by category
+      function filterProductsByCategory(category) {
+        collectionItems.forEach((item) => {
+          if (category === "all" || item.dataset.category === category) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+        bestSellerItems.forEach((item) => {
+          if (category === "all" || item.dataset.category === category) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
